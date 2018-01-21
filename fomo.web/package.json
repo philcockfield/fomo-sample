@@ -1,0 +1,40 @@
+{
+  "name": "fomo.web",
+  "version": "1.0.0",
+  "description": "Sample UI module for FOMO discussions.",
+  "main": "./lib/server.js",
+  "scripts": {
+    "ui":
+      "node ./node_modules/@storybook/react/dist/server/index.js -p 3030 -c ./.storybook -s ./static",
+    "start": "node .",
+    "watch": "nodemon . -e js --ignore src",
+    "lint": "sh ./node_modules/@tdb/typescript/sh/lint.sh",
+    "now-build": "echo no-op",
+    "build": "sh ./node_modules/@tdb/typescript/sh/build.sh",
+    "build:next": "next build ./lib",
+    "prepublish": "yarn run lint && yarn run build",
+    "deploy": "sh ./sh/deploy.sh",
+    "release": "now ln"
+  },
+  "dependencies": {
+    "@tdb/test.ui": "3.1.20",
+    "@tdb/util": "1.5.13",
+    "@tdb/util.server": "1.1.37",
+    "@tdb/web": "1.3.46"
+  },
+  "devDependencies": {
+    "@tdb/typescript": "2.6.7"
+  },
+  "now": {
+    "alias": "fomo.db.team",
+    "public": false,
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philcockfield/fomo-sample.git"
+  },
+  "license": "UNLICENSED"
+}
