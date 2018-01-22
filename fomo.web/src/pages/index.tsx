@@ -1,3 +1,4 @@
-import { React } from '../common';
+// import { React } from '../common';
+import { TestPage } from '../example/TestPage';
 
-export default () => <div>Hello</div>;
+export default TestPage;

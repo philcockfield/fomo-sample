@@ -7,7 +7,6 @@
     "ui":
       "node ./node_modules/@storybook/react/dist/server/index.js -p 3030 -c ./.storybook -s ./static",
     "start": "node .",
-    "watch": "nodemon . -e js --ignore src",
     "lint": "sh ./node_modules/@tdb/typescript/sh/lint.sh",
     "now-build": "echo no-op",
     "build": "sh ./node_modules/@tdb/typescript/sh/build.sh",
@@ -20,7 +19,8 @@
     "@tdb/test.ui": "3.1.20",
     "@tdb/util": "1.5.13",
     "@tdb/util.server": "1.1.37",
-    "@tdb/web": "1.3.46"
+    "@tdb/web": "1.3.46",
+    "react-sparklines": "^1.7.0"
   },
   "devDependencies": {
     "@tdb/typescript": "2.6.7"
