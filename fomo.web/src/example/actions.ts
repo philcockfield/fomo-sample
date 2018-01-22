@@ -2,7 +2,7 @@ import { Actions, IActionListItem } from './common';
 export { IActionListItem };
 
 export default Actions
-  // System state.
+  // Tests.
   .header('Sparklines')
   .add('Show 1', e => e.setState({ totalSparklines: 1 }))
   .add('Show 2', e => e.setState({ totalSparklines: 2 }))
