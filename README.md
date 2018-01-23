@@ -2,7 +2,7 @@
 
 Sample UI stack to support conversation happening around UI related architecture.
 
-![UI Architectural Parts](https://user-images.githubusercontent.com/185555/35254944-5784af5c-0051-11e8-87cc-90fafe144fe5.png)
+![UI Architectural Parts](https://user-images.githubusercontent.com/185555/35255403-b8078816-0053-11e8-8dc6-9a1ae33d6aaa.png)
 
 ## Sample end-points (live)
 
