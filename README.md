@@ -21,13 +21,20 @@ To update the number of sparklines client-side hit one of the test buttons on th
 
 ## Talking Points
 
+Rough set of discussion topics related to the design in this repo:
+
 * Typescript (with React)
+* Server rendering (with next.js)
 * Storybook (decomposed, isolated component development)
 * Inline CSS
-* Server and Client side rendering (via [next.js](https://github.com/zeit/next.js/))
 * GraphQL Server (BFF)
   * Server instance
   * Client calling graphql backend.
+* Mocking strategy
+  * Lighweight API mocking conferred by GraphQL setup
+  * Backend system design can be led by API mock design ("graphql first" ... get the product usage scenarios right prior to laying backend systems)
+  * Enable parallel development streams behind APIs.
+* DevOps
 
 https://fomo.db.team
 ![Sample](https://user-images.githubusercontent.com/185555/35254815-cbc7e768-0050-11e8-8f76-8578aecdf9ed.png)
