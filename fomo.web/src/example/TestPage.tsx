@@ -1,21 +1,26 @@
 import { React, css, Actions, ObjectView, Subject } from './common';
 import { TestSparklines } from './TestSparkline';
-import actions from './actions';
+import { actions, getDataset } from './actions';
 
-export interface ITestViewProps {}
+export interface ITestViewProps {
+  dataset?: any[];
+}
 export interface ITestViewState {
   pageLoading: boolean;
   totalSparklines: number;
+  dataset?: any[];
 }
 
 export class TestPage extends React.Component<ITestViewProps, ITestViewState> {
-  // public static async getInitialProps(ctx: any) {
-  //   return {};
-  // }
+  public static async getInitialProps(ctx: any) {
+    const dataset = await getDataset(5);
+    return { dataset };
+  }
 
   public state: ITestViewState = {
     pageLoading: true,
     totalSparklines: 1,
+    dataset: this.props.dataset,
   };
 
   private unmounted$ = new Subject();
