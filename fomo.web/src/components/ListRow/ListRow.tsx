@@ -1,7 +1,6 @@
 import { React, css } from '../../common';
 
-
-export interface IListRowProps { }
+export interface IListRowProps {}
 
 /**
  * A single row within a list.
@@ -9,14 +8,9 @@ export interface IListRowProps { }
 export const ListRow = (props: IListRowProps) => {
   const styles = {
     base: css({
-      backgroundColor: 'rgba(255, 0, 0, 0.1)', /* RED */
+      backgroundColor: 'rgba(255, 0, 0, 0.1)' /* RED */,
     }),
   };
 
-  return (
-    <div {...styles.base}>
-      ListRow
-    </div>
-  );
+  return <div {...styles.base}>ListRow</div>;
 };
-
