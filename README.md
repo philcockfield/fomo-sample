@@ -11,7 +11,7 @@ Sample UI stack to support conversation happening around UI related architecture
 
 To render a different number of sparklines on the server (initial load) pass the `totalSparklines` querystring, eg
 
-    https://fomo.db.team/?totalSparklines=20
+* https://fomo.db.team/?totalSparklines=20
 
 The sparklines are animating from randomly generated values, simulating updates to data pushed from the server.
 The pause before they beginnig animating shows the JavaScript download time. Typically in a SPA this is a blank
