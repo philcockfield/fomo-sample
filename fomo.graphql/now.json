@@ -1,5 +1,5 @@
 {
-  "alias": "graphql.fomo.db.team",
+  "alias": "fomo-graphql.db.team",
   "forwardNpm": true,
   "public": false,
   "env": {

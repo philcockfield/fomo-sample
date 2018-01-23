@@ -1,4 +1,4 @@
-import { Actions, IActionListItem } from './common';
+import { Actions, IActionListItem, db, gql } from './common';
 export { IActionListItem };
 
 export default Actions
@@ -7,7 +7,36 @@ export default Actions
   .add('Show 1', e => e.setState({ totalSparklines: 1 }))
   .add('Show 2', e => e.setState({ totalSparklines: 2 }))
   .add('Show 10', e => e.setState({ totalSparklines: 10 }))
-  .add('Show 100', e => e.setState({ totalSparklines: 100 }))
+  .add('Show 50', e => e.setState({ totalSparklines: 50 }))
+
+  // GraphQL.
+  .header('GraphQL')
+  .add('query data (1)', async e => {
+    e.setState({ dataset: await sampleDataset(1) });
+  })
+  .add('query data (5)', async e => {
+    e.setState({ dataset: await sampleDataset(5) });
+  })
+  .add('query data (100)', async e => {
+    e.setState({ dataset: await sampleDataset(100) });
+  })
 
   // Finish up.
   .toArray();
+
+async function sampleDataset(length: number) {
+  const query = gql`
+    query MyData($length: Int) {
+      dataset(length: $length) {
+        time
+        value
+      }
+    }
+  `;
+  const res = await db.client.query<any>({
+    query,
+    variables: { length },
+    fetchPolicy: 'network-only',
+  });
+  return res.data.dataset;
+}

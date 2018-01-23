@@ -8,4 +8,8 @@ export {
   cookie,
   Subject,
   Observable,
+  graphql,
+  gql,
+  GraphqlClient,
+  GraphqlHeadersFactory,
 } from '@tdb/util/lib';
