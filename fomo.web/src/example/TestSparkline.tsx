@@ -1,7 +1,28 @@
-import { React, css, Observable } from '../common';
+import { React, css, Observable, Subject, randomInt } from '../common';
 import { Sparkline } from '../components/Sparkline';
 
-const DATA = [5, 10, 5, 20, 22, 0, 34, 5, 10, 4, 22, 34, 12];
+const SAMPLE_DATA = [
+  0,
+  5,
+  89,
+  21,
+  35,
+  53,
+  20,
+  87,
+  19,
+  91,
+  41,
+  68,
+  48,
+  97,
+  88,
+  28,
+  20,
+  65,
+  74,
+  62,
+];
 
 export interface ITestSparklinesProps {
   total: number;
@@ -28,16 +49,23 @@ export class TestSparkline extends React.Component<
   ITestSparklineProps,
   ITestSparklineState
 > {
+  private unmounted$ = new Subject();
+
+  public componentWillUnmount() {
+    this.unmounted$.next();
+  }
+
   public state: ITestSparklineState = {
-    data: DATA,
+    data: SAMPLE_DATA,
   };
 
   public componentDidMount() {
-    Observable.timer(0, 500).subscribe(e => {
-      const data = [...this.state.data, randomInt(50)];
-      data.shift();
-      this.setState({ data });
-    });
+    Observable.timer(0, 300)
+      .takeUntil(this.unmounted$)
+      .subscribe(e => {
+        const data = nextRandomStep(this.state.data);
+        this.setState({ data });
+      });
   }
 
   public render() {
@@ -54,6 +82,8 @@ export class TestSparkline extends React.Component<
   }
 }
 
-function randomInt(max: number) {
-  return Math.floor(Math.random() * Math.floor(max));
+function nextRandomStep(data: number[]) {
+  data = [...data, randomInt(50)];
+  data.shift();
+  return data;
 }

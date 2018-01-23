@@ -9,7 +9,17 @@ Sample UI stack to support conversation happening around UI related architecture
 * https://fomo.db.team
 * https://fomo-data.db.team
 
-## Discussion Points
+To render a different number of sparklines on the server (initial load) pass the `totalSparklines` querystring, eg
+
+    https://fomo.db.team/?totalSparklines=20
+
+The sparklines are animating from randomly generated values, simulating updates to data pushed from the server.
+The pause before they beginnig animating shows the JavaScript download time. Typically in a SPA this is a blank
+screen before the UI renders, but in this architecture the initial load state is immediate.
+
+To update the number of sparklines client-side hit one of the test buttons on the left (eg `Show 10`).
+
+## Talking Points
 
 * Typescript (with React)
 * Storybook (decomposed, isolated component development)

@@ -4,6 +4,7 @@ import { actions, getDataset } from './actions';
 
 export interface ITestViewProps {
   dataset?: any[];
+  totalSparklines?: number;
 }
 export interface ITestViewState {
   pageLoading: boolean;
@@ -14,12 +15,13 @@ export interface ITestViewState {
 export class TestPage extends React.Component<ITestViewProps, ITestViewState> {
   public static async getInitialProps(ctx: any) {
     const dataset = await getDataset(5);
-    return { dataset };
+    const totalSparklines = ctx.query.totalSparklines || 1;
+    return { dataset, totalSparklines };
   }
 
   public state: ITestViewState = {
     pageLoading: true,
-    totalSparklines: 1,
+    totalSparklines: this.props.totalSparklines || 1,
     dataset: this.props.dataset,
   };
 
