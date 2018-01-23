@@ -1,11 +1,10 @@
-# fomo.web
+# fomo sample
 
-Sample UI stack to support conversation happening in #Fomo Core Devs channel
-around architecture.
+Sample UI stack to support conversation happening around UI related architecture.
 
 ![UI Architectural Parts](https://user-images.githubusercontent.com/185555/35254944-5784af5c-0051-11e8-87cc-90fafe144fe5.png)
 
-## Sample end-points
+## Sample end-points (live)
 
 * https://fomo.db.team
 * https://fomo-data.db.team
@@ -20,8 +19,8 @@ around architecture.
   * Server instance
   * Client calling graphql backend.
 
-![Sample](https://user-images.githubusercontent.com/185555/35254815-cbc7e768-0050-11e8-8f76-8578aecdf9ed.png)
 https://fomo.db.team
+![Sample](https://user-images.githubusercontent.com/185555/35254815-cbc7e768-0050-11e8-8f76-8578aecdf9ed.png)
 
-![GraphQL](https://user-images.githubusercontent.com/185555/35254860-0247928e-0051-11e8-8463-6a876d3ef9e1.png)
 https://fomo-data.db.team
+![GraphQL](https://user-images.githubusercontent.com/185555/35254860-0247928e-0051-11e8-8463-6a876d3ef9e1.png)
