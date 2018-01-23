@@ -1,0 +1,12 @@
+type Query {
+  dataset(length: Int): [DataSet]
+}
+
+scalar DateTime
+
+type DataSet {
+  time: DateTime!
+  value: Float!
+  isReal: Boolean
+  display: String
+}
