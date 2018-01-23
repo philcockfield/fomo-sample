@@ -3,6 +3,8 @@
 Sample UI stack to support conversation happening in #Fomo Core Devs channel
 around architecture.
 
+![UI Architectural Parts](https://user-images.githubusercontent.com/185555/35254944-5784af5c-0051-11e8-87cc-90fafe144fe5.png)
+
 ## Sample end-points
 
 * https://fomo.db.team
