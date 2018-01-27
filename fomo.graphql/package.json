@@ -19,7 +19,8 @@
   "dependencies": {
     "@tdb/util": "1.5.13",
     "@tdb/util.server": "^1.1.37",
-    "graphql-yoga": "^1.2.0"
+    "graphql-yoga": "^1.2.0",
+    "nem-library": "^0.11.2"
   },
   "devDependencies": {
     "@tdb/test": "^1.0.3",
