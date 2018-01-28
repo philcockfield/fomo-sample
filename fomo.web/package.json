@@ -1,17 +1,16 @@
 {
-  "name": "@fomonomics/web",
+  "name": "fomo.web",
   "version": "1.0.0",
   "description": "Sample UI module for FOMO discussions.",
   "main": "./lib/server.js",
   "scripts": {
-    "ui":
-      "node ./node_modules/@storybook/react/dist/server/index.js -p 3030 -c ./.storybook -s ./static",
+    "ui": "node ./node_modules/@storybook/react/dist/server/index.js -p 3030 -c ./.storybook -s ./static",
     "start": "node .",
     "lint": "sh ./node_modules/@tdb/typescript/sh/lint.sh",
     "now-build": "echo no-op",
     "build": "sh ./node_modules/@tdb/typescript/sh/build.sh",
     "build:next": "next build ./lib",
-    "prepublish": "yarn run lint && yarn run build",
+    "prepare": "yarn run lint && yarn run build",
     "deploy": "sh ./sh/deploy.sh",
     "release": "now ln"
   },
@@ -20,6 +19,7 @@
     "@tdb/util": "1.5.13",
     "@tdb/util.server": "1.1.37",
     "@tdb/web": "1.3.46",
+    "fomo.common": "^1.0.0",
     "react-sparklines": "^1.7.0"
   },
   "devDependencies": {

@@ -1,26 +1,18 @@
 {
-  "name": "fomo.graphql",
+  "name": "fomo.common",
   "version": "1.0.0",
-  "description": "GraphQL BFF server.",
+  "description": "Shared code between Fomo services.",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "start": "node .",
-    "watch": "nodemon . -e js,graphql",
     "test": "sh ./node_modules/@tdb/test/sh/test.sh",
     "tdd": "yarn run test -- --reporter min --watch",
     "lint": "sh ./node_modules/@tdb/typescript/sh/lint.sh",
-    "now-build": "echo no-op",
     "build": "rm -rf ./lib && tsc",
-    "prepare": "yarn run lint && yarn test && yarn run build",
-    "deploy": "sh ./sh/deploy.sh",
-    "release": "now ln"
+    "prepare": "yarn run lint && yarn test && yarn run build"
   },
   "dependencies": {
-    "@tdb/util": "1.5.14",
-    "@tdb/util.server": "1.1.38",
-    "fomo.common": "^1.0.0",
-    "graphql-yoga": "^1.2.0"
+    "@tdb/util": "1.5.14"
   },
   "devDependencies": {
     "@tdb/test": "1.0.3",
@@ -30,6 +22,5 @@
     "type": "git",
     "url": "https://github.com/philcockfield/fomo-sample"
   },
-  "license": "UNLICENSED",
-  "public": false
+  "license": "UNLICENSED"
 }

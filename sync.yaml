@@ -1,3 +1,2 @@
 modules:
-  - ./fomo.graphql/package.json
-  - ./fomo.web/package.json
+  - ./fomo.*/package.json
