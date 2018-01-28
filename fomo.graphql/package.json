@@ -1,5 +1,5 @@
 {
-  "name": "fomo.graphql",
+  "name": "@fomonomics/graphql",
   "version": "1.0.0",
   "description": "GraphQL BFF server.",
   "main": "./lib/index.js",
@@ -29,5 +29,6 @@
     "type": "git",
     "url": "https://github.com/philcockfield/fomo-sample"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "public": false
 }

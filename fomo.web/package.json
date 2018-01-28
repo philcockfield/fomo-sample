@@ -1,5 +1,5 @@
 {
-  "name": "fomo.web",
+  "name": "@fomonomics/web",
   "version": "1.0.0",
   "description": "Sample UI module for FOMO discussions.",
   "main": "./lib/server.js",
@@ -36,5 +36,6 @@
     "type": "git",
     "url": "https://github.com/philcockfield/fomo-sample.git"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "public": false
 }
