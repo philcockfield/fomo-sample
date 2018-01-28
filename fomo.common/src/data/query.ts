@@ -1,5 +1,9 @@
-import { IQueryMapper, IQuery } from './types';
+import { IQueryMapper, IQuery, IDataSet, IMappers } from './types';
 
+/**
+ * [Serializable].
+ * Prepresents a set of query transforms.
+ */
 export class Query {
   private constructor() {}
   public static create = (obj?: IQuery) => {
@@ -26,5 +30,22 @@ export class Query {
    */
   public toObject(): IQuery {
     return { mappers: [...this.mappers] };
+  }
+
+  /**
+   * Performs a transform on the data.
+   */
+  public async transform(mappers: IMappers, data: IDataSet): Promise<IDataSet> {
+    let result = { ...data };
+    for (const { id, props = {} } of this.mappers) {
+      const mapper = mappers.get(id);
+      if (!mapper) {
+        throw new Error(
+          `Attempting to transform using mapper '${id}' which has not been registered yet.`,
+        );
+      }
+      result = await mapper(props, result);
+    }
+    return result;
   }
 }
