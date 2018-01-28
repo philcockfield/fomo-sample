@@ -2,10 +2,6 @@ type Query {
   dataset(length: Int): [DataSet]
 }
 
-type Mutation {
-  nem: String
-}
-
 scalar DateTime
 
 type DataSet {

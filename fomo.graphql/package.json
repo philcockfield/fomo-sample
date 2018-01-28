@@ -6,7 +6,7 @@
   "typings": "./lib/index.d.ts",
   "scripts": {
     "start": "node .",
-    "watch": "nodemon . -e js --ignore src",
+    "watch": "nodemon . -e js,graphql",
     "test": "sh ./node_modules/@tdb/test/sh/test.sh",
     "tdd": "yarn run test -- --reporter min --watch",
     "lint": "sh ./node_modules/@tdb/typescript/sh/lint.sh",
@@ -17,13 +17,12 @@
     "release": "now ln"
   },
   "dependencies": {
-    "@tdb/util": "1.5.13",
-    "@tdb/util.server": "^1.1.37",
-    "graphql-yoga": "^1.2.0",
-    "nem-library": "^0.11.2"
+    "@tdb/util": "1.5.14",
+    "@tdb/util.server": "1.1.38",
+    "graphql-yoga": "^1.2.0"
   },
   "devDependencies": {
-    "@tdb/test": "^1.0.3",
+    "@tdb/test": "1.0.3",
     "@tdb/typescript": "2.6.7"
   },
   "repository": {
