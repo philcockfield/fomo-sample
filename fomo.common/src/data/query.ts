@@ -1,6 +1,8 @@
 import { Subject, Observable } from '../common';
 import { IQueryMapper, IQuery, IDataSet, IMappers } from './types';
 
+export { Observable };
+
 export interface IQueryChange {
   type: 'MAPPER_ADDED';
 }
