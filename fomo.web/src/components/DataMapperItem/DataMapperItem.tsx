@@ -2,12 +2,14 @@ import { React, css, color, constants, data } from '../../common';
 import { Text, ITextProps } from '../primitives';
 import { PropGrid } from './components/PropGrid';
 
-const IMAGE_PATH = '/images/DataMapperItem/';
+const IMAGE_PATH = '/images/DataMapper/';
 
-export interface IDataMapperItemProps {
-  name: string;
+export interface IDataMapperItem {
+  id: string;
   props?: data.MapperProps;
 }
+
+export interface IDataMapperItemProps extends IDataMapperItem {}
 
 /**
  * A visual representation of a query mapping.
@@ -70,7 +72,7 @@ export class DataMapperItem extends React.Component<IDataMapperItemProps, {}> {
           <div {...styles.headerIcon} />
           <div {...styles.headerLabels}>
             <Label>Mapper</Label>
-            <Label color={constants.COLORS.BLUE}>“{this.props.name}”</Label>
+            <Label color={constants.COLORS.BLUE}>“{this.props.id}”</Label>
           </div>
         </div>
         <div {...styles.body}>

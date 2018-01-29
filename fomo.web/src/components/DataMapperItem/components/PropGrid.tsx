@@ -35,7 +35,9 @@ export const PropGrid = (props: IPropGridProps) => {
       minWidth: 40,
       borderRight: `solid 1px ${color.format(-0.1)}`,
     }),
-    tdValue: css({}),
+    tdValue: css({
+      paddingLeft: 10,
+    }),
   };
 
   const data = props.data || {};
@@ -45,24 +47,28 @@ export const PropGrid = (props: IPropGridProps) => {
     const isLast = i === keys.length - 1;
     const tdFirst = i === 0 && styles.tdFirst;
     const tdLast = isLast && styles.tdLast;
-
     const value = data[key];
+    const valueString =
+      value === undefined
+        ? '<undefined>'
+        : value === null ? '<null>' : value.toString();
     return (
       <tr key={i} {...styles.tr}>
         <td {...css(styles.td, styles.tdKey, tdFirst, tdLast)}>
           <Label>{key}</Label>
         </td>
         <td {...css(styles.td, styles.tdValue, tdFirst, tdLast)}>
-          <Label>{value}</Label>
+          <Label>{valueString}</Label>
         </td>
       </tr>
     );
   });
 
-  console.log('props', props);
   return (
     <div {...styles.base}>
-      <table {...styles.table}>{elRows}</table>
+      <table {...styles.table}>
+        <tbody>{elRows}</tbody>
+      </table>
     </div>
   );
 };

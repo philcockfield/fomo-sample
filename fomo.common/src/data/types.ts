@@ -16,7 +16,9 @@ export interface IQueryMapper {
   description?: string;
   props?: MapperProps; // Properties required by the mapper.
 }
-export type MapperProps = { [key: string]: string | number | boolean | Date };
+export type MapperProps = {
+  [key: string]: string | number | boolean | Date | undefined | null;
+};
 
 export interface IQuery {
   mappers: IQueryMapper[];

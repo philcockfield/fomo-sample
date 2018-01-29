@@ -8,8 +8,8 @@ export function init(query: data.Query) {
 
     .textbox({ name: 'increment', default: 2 })
     .add('add "increment" mapper', e => {
-      // const query: data.Query = e.prevProps.query;
-      query.map({ id: 'increment', props: { by: e.args.increment } });
+      const by = e.args.increment;
+      query.map({ id: 'increment', props: { by } });
     })
 
     // Finish up.
