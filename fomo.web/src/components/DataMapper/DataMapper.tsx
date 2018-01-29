@@ -12,7 +12,9 @@ import { DataMapperList } from '../DataMapperList';
 import { Columns } from './components/Columns';
 import { DataSetColumn } from './components/DataSetColumn';
 
-export interface IDataMapperProps {}
+export interface IDataMapperProps {
+  input?: data.IDataSet;
+}
 export interface IDataMapperState {
   query: data.IQuery;
   input?: data.IDataSet;
@@ -26,19 +28,24 @@ export class DataMapper extends React.Component<
   IDataMapperProps,
   IDataMapperState
 > {
+  public static getDataset = getDataset;
+
   private unmounted$ = new Subject();
 
   private query = data.Query.create();
   private actions = init(this.query);
   public state: IDataMapperState = {
     query: this.query.toObject(),
+    input: this.props.input,
   };
 
   public async componentDidMount() {
     this.updateState();
 
-    const input = await getDataset(5);
-    this.setState({ input });
+    if (!this.state.input) {
+      const input = await getDataset(5);
+      this.setState({ input });
+    }
 
     this.query.change$
       .takeUntil(this.unmounted$)
