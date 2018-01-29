@@ -7,12 +7,16 @@ import {
   data,
   Subject,
 } from '../../common';
-import { init } from './actions';
+import { init, getDataset } from './actions';
 import { DataMapperList } from '../DataMapperList';
+import { Columns } from './components/Columns';
+import { DataSetColumn } from './components/DataSetColumn';
 
 export interface IDataMapperProps {}
 export interface IDataMapperState {
   query: data.IQuery;
+  input?: data.IDataSet;
+  output?: data.IDataSet;
 }
 
 /**
@@ -30,11 +34,15 @@ export class DataMapper extends React.Component<
     query: this.query.toObject(),
   };
 
-  public componentDidMount() {
+  public async componentDidMount() {
+    this.updateState();
+
+    const input = await getDataset(5);
+    this.setState({ input });
+
     this.query.change$
       .takeUntil(this.unmounted$)
       .subscribe(e => this.updateState());
-    this.updateState();
   }
 
   public componentWillUnmount() {
@@ -59,32 +67,44 @@ export class DataMapper extends React.Component<
         Scroll: true,
         paddingLeft: 50,
       }),
-      dataMapperList: css({
-        maxWidth: 300,
-      }),
     };
 
-    const elLeftBottom = <Content {...this.state} />;
+    const elLeftBottom = <LeftBottom {...this.state} />;
     const items = DataMapperList.toItems(this.state.query);
+
+    const elInput = (
+      <DataSetColumn
+        dataset={this.state.input}
+        title={'Input'}
+        emptyLabel={'No input data'}
+      />
+    );
+    const elMappers = <DataMapperList items={items} />;
+    const elOutput = (
+      <DataSetColumn
+        dataset={this.state.output}
+        title={'Output'}
+        emptyLabel={''}
+      />
+    );
 
     return (
       <div {...styles.base}>
         <Actions
+          state={this.state}
           setState={this.setState.bind(this)} // tslint:disable-line
           items={this.actions.list}
           leftWidth={320}
           leftBottom={elLeftBottom}
         >
-          <div {...styles.content}>
-            <DataMapperList items={items} style={styles.dataMapperList} />
-          </div>
+          <Columns left={elInput} middle={elMappers} right={elOutput} />
         </Actions>
       </div>
     );
   }
 }
 
-const Content = (props: any) => {
+const LeftBottom = (props: any) => {
   const style = {
     base: css({
       maxHeight: '35%',
@@ -96,7 +116,7 @@ const Content = (props: any) => {
 
   return (
     <div {...style.base}>
-      <ObjectView data={props} expandLevel={5} />
+      <ObjectView data={props} />
     </div>
   );
 };

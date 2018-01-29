@@ -7,6 +7,9 @@ describe('data', {
   height: '100%',
   flex: true,
 })
+  .add('DataMapperList (0)', () => {
+    return <DataMapperList items={[]} />;
+  })
   .add('DataMapperList (1)', () => {
     const query = data.Query.map({ id: 'increment', props: { by: 4 } });
     const items = DataMapperList.toItems(query.toObject());

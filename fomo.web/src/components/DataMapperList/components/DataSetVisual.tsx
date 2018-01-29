@@ -1,6 +1,5 @@
-import { React, css, color, GlamorValue } from '../../../common';
-
-const IMAGE_PATH = '/images/DataMapper/';
+import { React, css, color } from '../../../common';
+import { Box, BOX } from './Box';
 
 export interface IDataSetVisualProps {
   isFirst?: boolean;
@@ -8,10 +7,6 @@ export interface IDataSetVisualProps {
 }
 
 const PADDING = 15;
-const BOX = {
-  WIDTH: 50,
-  HEIGHT: 57,
-};
 
 export const DataSetVisual = (props: IDataSetVisualProps) => {
   const { isFirst = false, isLast = false } = props;
@@ -52,22 +47,4 @@ export const DataSetVisual = (props: IDataSetVisualProps) => {
       </div>
     </div>
   );
-};
-
-export interface IBoxProps {
-  style?: GlamorValue;
-}
-
-const Box = (props: IBoxProps) => {
-  const styles = {
-    base: css({
-      Image: [
-        `${IMAGE_PATH}/box.png`,
-        `${IMAGE_PATH}/box@2x.png`,
-        BOX.WIDTH,
-        BOX.HEIGHT,
-      ],
-    }),
-  };
-  return <div {...css(styles.base, props.style)} />;
 };

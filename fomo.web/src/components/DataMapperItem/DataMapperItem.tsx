@@ -1,5 +1,5 @@
 import { React, css, color, constants, data } from '../../common';
-import { Text, ITextProps } from '../primitives';
+import { Text, EmptyText, ITextProps } from '../primitives';
 import { PropGrid } from './components/PropGrid';
 
 const IMAGE_PATH = '/images/DataMapper/';
@@ -54,16 +54,9 @@ export class DataMapperItem extends React.Component<IDataMapperItemProps, {}> {
     const elPropGrid = props && <PropGrid data={props} />;
 
     const elNoProps = !props && (
-      <Label
-        size={12}
-        italic={true}
-        weight={'LIGHT'}
-        color={-0.3}
-        style={styles.noProps}
-        block={true}
-      >
+      <EmptyText style={styles.noProps} block={true}>
         No props
-      </Label>
+      </EmptyText>
     );
 
     return (

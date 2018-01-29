@@ -1,6 +1,7 @@
 import { React, css, data, GlamorValue } from '../../common';
 import { DataMapperItem, IDataMapperItem } from '../DataMapperItem';
 import { DataSetVisual } from './components/DataSetVisual';
+import { EmptyText } from '../Text';
 
 export { IDataMapperItem };
 
@@ -29,6 +30,10 @@ export class DataMapperList extends React.Component<IDataMapperListProps, {}> {
         flex: 1,
         boxSizing: 'border-box',
       }),
+      empty: css({
+        textAlign: 'center',
+        padding: 10,
+      }),
     };
 
     const elItems = items.map((item, i) => {
@@ -44,6 +49,17 @@ export class DataMapperList extends React.Component<IDataMapperListProps, {}> {
       );
     });
 
-    return <div {...css(styles.base, this.props.style)}>{elItems}</div>;
+    const elEmpty = items.length === 0 && (
+      <EmptyText block={true} style={styles.empty}>
+        No data mappers
+      </EmptyText>
+    );
+
+    return (
+      <div {...css(styles.base, this.props.style)}>
+        {elItems}
+        {elEmpty}
+      </div>
+    );
   }
 }
