@@ -27,7 +27,7 @@ export default class MyDocument extends next.Document {
     return (
       <html>
         <next.Head>
-          <title>Team</title>
+          <title>Fomonomics</title>
           <meta
             name={'viewport'}
             content={'width=device-width, initial-scale=1'}

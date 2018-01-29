@@ -14,7 +14,7 @@ export interface ITestViewState {
 
 export class TestPage extends React.Component<ITestViewProps, ITestViewState> {
   public static async getInitialProps(ctx: any) {
-    const dataset = await getDataset(5);
+    const dataset = (await getDataset(5)) as any;
     const totalSparklines = ctx.query.totalSparklines || 1;
     return { dataset, totalSparklines };
   }
@@ -45,8 +45,9 @@ export class TestPage extends React.Component<ITestViewProps, ITestViewState> {
     return (
       <div {...styles.base}>
         <Actions
+          state={this.state}
           setState={this.setState.bind(this)} // tslint:disable-line
-          leftWidth={455}
+          leftWidth={400}
           items={actions}
         >
           <Content {...this.state} />

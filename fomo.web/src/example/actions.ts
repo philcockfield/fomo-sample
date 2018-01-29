@@ -1,4 +1,4 @@
-import { Actions, IActionListItem, db, gql } from './common';
+import { Actions, IActionListItem, db, gql, data } from './common';
 
 export { IActionListItem };
 
@@ -25,7 +25,10 @@ export const actions = Actions
   // Finish up.
   .toArray();
 
-export async function getDataset(length: number) {
+/**
+ * INTERNAL
+ */
+export async function getDataset(length: number): Promise<data.IDataSet> {
   const query = gql`
     query MyData($length: Int) {
       dataset(length: $length) {
@@ -39,5 +42,6 @@ export async function getDataset(length: number) {
     variables: { length },
     fetchPolicy: 'network-only',
   });
-  return res.data.dataset;
+  const items = res.data.dataset || [];
+  return { items };
 }

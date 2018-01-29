@@ -41,3 +41,7 @@ https://fomo.db.team
 
 https://fomo-data.db.team
 ![GraphQL](https://user-images.githubusercontent.com/185555/35254860-0247928e-0051-11e8-8463-6a876d3ef9e1.png)
+
+## DataMapper API
+
+![DataMapper](https://user-images.githubusercontent.com/185555/35498405-fb0499f4-0532-11e8-8664-06d13a6ed269.gif)

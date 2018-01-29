@@ -843,6 +843,12 @@ finalhandler@~1.0.4:
     statuses "~1.3.1"
     unpipe "~1.0.0"
 
+fomo.common@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fomo.common/-/fomo.common-1.0.0.tgz#79524b20c2bd6f336f15672df046173593317464"
+  dependencies:
+    "@tdb/util" "1.5.14"
+
 forwarded@~0.1.0, forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
