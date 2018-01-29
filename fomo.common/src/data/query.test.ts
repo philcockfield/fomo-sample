@@ -85,6 +85,8 @@ describe('query.transform', () => {
   });
 
   it('runs several mappers', async () => {
+
+    
     const data = createDataset(3);
     const query = Query
       // Add a series of mappers.

@@ -7,6 +7,7 @@ Sample UI stack to support conversation happening around UI related architecture
 ## Sample end-points (live)
 
 * https://fomo.db.team
+* https://fomo.db.team/map
 * https://fomo-data.db.team
 
 To render a different number of sparklines on the server (initial load) pass the `totalSparklines` querystring, eg
