@@ -2,6 +2,7 @@ export {
   React,
   log,
   css,
+  GlamorValue,
   color,
   moment,
   value,

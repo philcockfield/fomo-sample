@@ -45,7 +45,7 @@ export class DataMapper extends React.Component<
       <div {...styles.base}>
         <Actions
           setState={this.setState.bind(this)} // tslint:disable-line
-          leftWidth={350}
+          leftWidth={320}
           items={this.actions.list}
         >
           <Content {...this.state} />
