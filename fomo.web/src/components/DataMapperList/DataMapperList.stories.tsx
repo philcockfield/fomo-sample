@@ -1,5 +1,5 @@
 import { React, describe, data } from '../../common/storybook';
-import { DataMapperList, IDataMapperItem } from '.';
+import { DataMapperList } from '.';
 
 describe('data', {
   title: 'A list of DataMapper items.',
