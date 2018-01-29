@@ -13,12 +13,12 @@ export const query = {
      * NOTE: Calls made out to back-end services here.
      */
 
-    const result = Array.from({ length }).map((v, i) => {
+    const items = Array.from({ length }).map((v, i) => {
       const time = new Date();
       return { time, value: randomInt(100), isReal: true };
     });
 
-    return result;
+    return items;
   },
 };
 
