@@ -44,4 +44,6 @@ https://fomo-data.db.team
 
 ## DataMapper API
 
+https://fomo.db.team/map
+
 ![DataMapper](https://user-images.githubusercontent.com/185555/35498405-fb0499f4-0532-11e8-8664-06d13a6ed269.gif)
