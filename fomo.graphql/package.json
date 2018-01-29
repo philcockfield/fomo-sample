@@ -1,6 +1,6 @@
 {
   "name": "fomo.graphql",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "GraphQL BFF server.",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@tdb/util": "1.5.14",
     "@tdb/util.server": "1.1.38",
-    "fomo.common": "^1.0.0",
+    "fomo.common": "^1.0.1",
     "graphql-yoga": "^1.2.0"
   },
   "devDependencies": {

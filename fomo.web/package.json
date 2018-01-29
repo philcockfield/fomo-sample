@@ -1,10 +1,11 @@
 {
   "name": "fomo.web",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sample UI module for FOMO discussions.",
   "main": "./lib/server.js",
   "scripts": {
-    "ui": "node ./node_modules/@storybook/react/dist/server/index.js -p 3030 -c ./.storybook -s ./static",
+    "ui":
+      "node ./node_modules/@storybook/react/dist/server/index.js -p 3030 -c ./.storybook -s ./static",
     "start": "node .",
     "lint": "sh ./node_modules/@tdb/typescript/sh/lint.sh",
     "now-build": "echo no-op",
@@ -15,11 +16,11 @@
     "release": "now ln"
   },
   "dependencies": {
-    "@tdb/test.ui": "3.1.20",
-    "@tdb/util": "1.5.13",
-    "@tdb/util.server": "1.1.37",
-    "@tdb/web": "1.3.46",
-    "fomo.common": "^1.0.0",
+    "@tdb/test.ui": "3.1.22",
+    "@tdb/util": "1.5.14",
+    "@tdb/util.server": "1.1.38",
+    "@tdb/web": "1.3.49",
+    "fomo.common": "^1.0.1",
     "react-sparklines": "^1.7.0"
   },
   "devDependencies": {
