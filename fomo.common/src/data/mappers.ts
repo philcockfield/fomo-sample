@@ -14,6 +14,9 @@ export class Mappers implements IMappers {
   private constructor() {}
   private mappers: { [id: string]: IMapper<any> } = {};
 
+  /**
+   * Adds a new data transform mapper.
+   */
   public add<P extends MapperProps>(id: string, transform: MapperTransform<P>) {
     if (this.mappers.id) {
       throw new Error(
@@ -24,6 +27,9 @@ export class Mappers implements IMappers {
     return this;
   }
 
+  /**
+   * Gets the data mapper with the given id.
+   */
   public get<P extends MapperProps>(
     id: string,
   ): MapperTransform<P> | undefined {
@@ -31,5 +37,3 @@ export class Mappers implements IMappers {
     return item ? item.transform : undefined;
   }
 }
-
-export const mappers = Mappers.create();

@@ -13,6 +13,7 @@ export type MapperTransform<P extends MapperProps> = (
 export interface IQueryMapper {
   id: string; // Mapper factory ID.
   name?: string; // Display name.
+  description?: string;
   props?: MapperProps; // Properties required by the mapper.
 }
 export type MapperProps = { [key: string]: string | number | boolean | Date };

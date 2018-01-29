@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Query, IDataSet, mappers } from '.';
+import { Query, IDataSet, Mappers } from '.';
 
 describe('query.map', () => {
   it('has not mappers', () => {
@@ -40,8 +40,9 @@ describe('query.transform', () => {
     return { items };
   };
 
-  mappers
+  const mappers = Mappers
     // Register mappers.
+    .create()
     .add<{ by: number }>('increment', async (props, data) => {
       const items = data.items.map(item => ({
         ...item,
@@ -80,5 +81,21 @@ describe('query.transform', () => {
     expect(result.items[0].value).to.eql(6);
     expect(result.items[1].value).to.eql(7);
     expect(result.items[2].value).to.eql(8);
+  });
+
+  it('throws if it tries to map with a non-existent transform', async () => {
+    const data = createDataset(3);
+    const query = Query
+      // Add a series of mappers.
+      .map({ id: 'increment', props: { by: 10 } })
+      .map({ id: 'does-not-exist' });
+
+    let err: Error | undefined;
+    try {
+      await query.transform(mappers, data);
+    } catch (error) {
+      err = error;
+    }
+    expect(err && err.message).to.contain('has not been registered yet');
   });
 });

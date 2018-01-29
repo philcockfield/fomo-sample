@@ -41,7 +41,7 @@ export class Query {
       const mapper = mappers.get(id);
       if (!mapper) {
         throw new Error(
-          `Attempting to transform using mapper '${id}' which has not been registered yet.`,
+          `Attempting to transform data using mapper '${id}' which has not been registered yet.`,
         );
       }
       result = await mapper(props, result);
