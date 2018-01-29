@@ -46,7 +46,7 @@ export class TestPage extends React.Component<ITestViewProps, ITestViewState> {
       <div {...styles.base}>
         <Actions
           setState={this.setState.bind(this)} // tslint:disable-line
-          leftWidth={455}
+          leftWidth={400}
           items={actions}
         >
           <Content {...this.state} />

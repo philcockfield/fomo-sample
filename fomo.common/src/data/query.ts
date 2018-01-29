@@ -1,4 +1,9 @@
+import { Subject, Observable } from '../common';
 import { IQueryMapper, IQuery, IDataSet, IMappers } from './types';
+
+export interface IQueryChange {
+  type: 'MAPPER_ADDED';
+}
 
 /**
  * [Serializable].
@@ -16,12 +21,16 @@ export class Query {
   public static map = (mapper: IQueryMapper) => Query.create().map(mapper);
   public mappers: IQueryMapper[] = [];
 
+  private changeSubject$ = new Subject<IQueryChange>();
+  public change$ = this.changeSubject$.asObservable().share();
+
   /**
    * Adds a mapper to the chain.
    */
   public map(mapper: IQueryMapper) {
     const props = mapper.props || {};
     this.mappers = [...this.mappers, { ...mapper, props }];
+    this.changeSubject$.next({ type: 'MAPPER_ADDED' });
     return this;
   }
 

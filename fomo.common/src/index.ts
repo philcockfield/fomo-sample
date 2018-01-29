@@ -1,1 +1,4 @@
-console.log(`\n-- Started --\n\n`); // tslint:disable-line
+import * as data from './data';
+
+export { data };
+export * from './types';
