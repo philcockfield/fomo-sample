@@ -24,6 +24,7 @@ export function init(query: data.Query) {
       const by = e.args.increment;
       query.map({ id: 'increment', props: { by } });
     })
+    .add('clear', e => query.clear())
 
     // Execute
     .header('Ouput Dataset')

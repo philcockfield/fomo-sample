@@ -4,7 +4,7 @@ import { IQueryMapper, IQuery, IDataSet, IMappers } from './types';
 export { Observable };
 
 export interface IQueryChange {
-  type: 'MAPPER_ADDED';
+  type: 'MAPPER_ADDED' | 'CLEARED';
 }
 
 /**
@@ -33,6 +33,15 @@ export class Query {
     const props = mapper.props || {};
     this.mappers = [...this.mappers, { ...mapper, props }];
     this.changeSubject$.next({ type: 'MAPPER_ADDED' });
+    return this;
+  }
+
+  /**
+   * Clears all internal state.
+   */
+  public clear() {
+    this.mappers = [];
+    this.changeSubject$.next({ type: 'CLEARED' });
     return this;
   }
 

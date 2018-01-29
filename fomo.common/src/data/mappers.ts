@@ -18,7 +18,7 @@ export class Mappers implements IMappers {
    * Adds a new data transform mapper.
    */
   public add<P extends MapperProps>(id: string, transform: MapperTransform<P>) {
-    if (this.mappers.id) {
+    if (this.mappers[id]) {
       throw new Error(
         `A mapper with the id '${id}' has already been registered.`,
       );

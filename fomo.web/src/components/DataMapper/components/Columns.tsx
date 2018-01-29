@@ -1,5 +1,6 @@
 import { React, css, color } from '../../../common';
 import { Arrow } from './Arrow';
+import { Text } from '../../Text';
 
 export interface IColumnsProps {
   left?: React.ReactNode;
@@ -7,7 +8,7 @@ export interface IColumnsProps {
   right?: React.ReactNode;
 }
 
-const PADDING = 20;
+const PADDING = 30;
 
 export class Columns extends React.Component<IColumnsProps, {}> {
   public render() {
@@ -16,13 +17,17 @@ export class Columns extends React.Component<IColumnsProps, {}> {
       base: css({
         flex: 1,
         Flex: 'horizontal-stretch-stretch',
-        Scroll: true,
         boxSizing: 'border-box',
       }),
       left: css({
         position: 'relative',
         flex: 1,
+      }),
+      columnBody: css({
+        Absolute: [30, 0, 0, 0],
+        Scroll: true,
         PaddingX: PADDING,
+        paddingTop: 10,
       }),
       middle: css({
         position: 'relative',
@@ -48,15 +53,33 @@ export class Columns extends React.Component<IColumnsProps, {}> {
     return (
       <div {...styles.base}>
         <div {...styles.left}>
-          {left}
+          <ColumnTitle>Input</ColumnTitle>
+          <div {...styles.columnBody}>{left}</div>
           <Arrow style={styles.arrow} />
         </div>
         <div {...styles.middle}>
-          {middle}
+          <ColumnTitle>Mappers</ColumnTitle>
+          <div {...styles.columnBody}>{middle}</div>
           <Arrow style={styles.arrow} />
         </div>
-        <div {...styles.right}>{right}</div>
+        <div {...styles.right}>
+          <ColumnTitle>Output</ColumnTitle>
+          <div {...styles.columnBody}>{right}</div>
+        </div>
       </div>
     );
   }
 }
+
+const ColumnTitle = (props: { children: string }) => {
+  const styles = {
+    base: css({
+      textAlign: 'center',
+    }),
+  };
+  return (
+    <div {...styles.base}>
+      <Text weight={'BOLD'}>{props.children}</Text>
+    </div>
+  );
+};

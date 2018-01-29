@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { Query, IDataSet, Mappers } from '.';
+import { IQueryChange } from './query';
 
 describe('query.map', () => {
   it('has not mappers', () => {
@@ -28,6 +29,20 @@ describe('query.map', () => {
     const query1 = Query.map({ id: '1' }).map({ id: '2' });
     const query2 = Query.create(query1.toObject());
     expect(query2.mappers).to.eql(query1.mappers);
+  });
+
+  it('clears all mappers', () => {
+    const query = Query.map({ id: '1' }).map({ id: '2' });
+    expect(query.mappers.length).to.eql(2);
+
+    const events: IQueryChange[] = [];
+    query.change$.subscribe(e => events.push(e));
+
+    const result = query.clear();
+    expect(query.mappers.length).to.eql(0);
+    expect(result.mappers.length).to.eql(0);
+    expect(events.length).to.eql(1);
+    expect(events[0].type).to.eql('CLEARED');
   });
 });
 
