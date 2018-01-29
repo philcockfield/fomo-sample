@@ -3584,9 +3584,9 @@ follow-redirects@1.2.6:
   dependencies:
     debug "^3.1.0"
 
-fomo.common@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/fomo.common/-/fomo.common-1.0.1.tgz#299b189751715a8dee83c481d41831585413f447"
+fomo.common@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/fomo.common/-/fomo.common-1.0.2.tgz#3e606fbfb36c139eb1335f1356a9f68faf10f6fe"
   dependencies:
     "@tdb/util" "1.5.14"
 
