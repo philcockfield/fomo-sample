@@ -1,4 +1,4 @@
-import { React, css } from '../../common';
+import { React, css, data, GlamorValue } from '../../common';
 import { DataMapperItem, IDataMapperItem } from '../DataMapperItem';
 import { DataSetVisual } from './components/DataSetVisual';
 
@@ -6,12 +6,22 @@ export { IDataMapperItem };
 
 export interface IDataMapperListProps {
   items?: IDataMapperItem[];
+  style?: GlamorValue;
 }
 
 /**
  * A list of DataMapper items.
  */
 export class DataMapperList extends React.Component<IDataMapperListProps, {}> {
+  public static toItems(query: data.IQuery): IDataMapperItem[] {
+    return query.mappers.map(item => {
+      return {
+        id: item.id,
+        props: item.props,
+      };
+    });
+  }
+
   public render() {
     const { items = [] } = this.props;
     const styles = {
@@ -34,6 +44,6 @@ export class DataMapperList extends React.Component<IDataMapperListProps, {}> {
       );
     });
 
-    return <div {...styles.base}>{elItems}</div>;
+    return <div {...css(styles.base, this.props.style)}>{elItems}</div>;
   }
 }

@@ -1,4 +1,4 @@
-import { React, css, color, data } from '../../../common';
+import { R, React, css, color, data } from '../../../common';
 import { Text, ITextProps } from '../../primitives';
 
 export interface IPropGridProps {
@@ -58,7 +58,7 @@ export const PropGrid = (props: IPropGridProps) => {
           <Label>{key}</Label>
         </td>
         <td {...css(styles.td, styles.tdValue, tdFirst, tdLast)}>
-          <Label>{valueString}</Label>
+          <Label opacity={R.isNil(value) ? 0.3 : 1}>{valueString}</Label>
         </td>
       </tr>
     );

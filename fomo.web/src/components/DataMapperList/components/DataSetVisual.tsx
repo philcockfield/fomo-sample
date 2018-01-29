@@ -23,7 +23,6 @@ export const DataSetVisual = (props: IDataSetVisualProps) => {
     }),
     boxOuter: css({
       Absolute: 0,
-      // Flex: 'center-center',
     }),
     box: css({
       AbsoluteCenter: 'x',

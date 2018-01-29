@@ -7,6 +7,7 @@ export interface ITextProps {
   weight?: 'THIN' | 'LIGHT' | 'NORMAL' | 'BOLD';
   italic?: boolean;
   block?: boolean;
+  opacity?: number;
   style?: GlamorValue;
 }
 
@@ -25,6 +26,7 @@ export const Text = (props: ITextProps) => {
     block = false,
     weight = 'NORMAL',
     italic = false,
+    opacity = 1,
   } = props;
   const styles = {
     base: css({
@@ -34,6 +36,7 @@ export const Text = (props: ITextProps) => {
       fontWeight: WEIGHTS[weight],
       fontStyle: italic && 'italic',
       cursor: 'default',
+      opacity,
     }),
   };
   return <div {...css(styles.base, props.style)}>{children}</div>;

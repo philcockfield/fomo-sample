@@ -1,5 +1,14 @@
-import { React, css, Actions, ObjectView, data, Subject } from '../../common';
+import {
+  React,
+  css,
+  color,
+  Actions,
+  ObjectView,
+  data,
+  Subject,
+} from '../../common';
 import { init } from './actions';
+import { DataMapperList } from '../DataMapperList';
 
 export interface IDataMapperProps {}
 export interface IDataMapperState {
@@ -22,14 +31,19 @@ export class DataMapper extends React.Component<
   };
 
   public componentDidMount() {
-    this.query.change$.takeUntil(this.unmounted$).subscribe(e => {
-      const query = this.query.toObject();
-      this.setState({ query });
-    });
+    this.query.change$
+      .takeUntil(this.unmounted$)
+      .subscribe(e => this.updateState());
+    this.updateState();
   }
 
   public componentWillUnmount() {
     this.unmounted$.next();
+  }
+
+  private updateState() {
+    const query = this.query.toObject();
+    this.setState({ query });
   }
 
   public render() {
@@ -39,16 +53,31 @@ export class DataMapper extends React.Component<
         display: 'flex',
         flex: 1,
       }),
+      content: css({
+        display: 'flex',
+        flex: 1,
+        Scroll: true,
+        paddingLeft: 50,
+      }),
+      dataMapperList: css({
+        maxWidth: 300,
+      }),
     };
+
+    const elLeftBottom = <Content {...this.state} />;
+    const items = DataMapperList.toItems(this.state.query);
 
     return (
       <div {...styles.base}>
         <Actions
           setState={this.setState.bind(this)} // tslint:disable-line
-          leftWidth={320}
           items={this.actions.list}
+          leftWidth={320}
+          leftBottom={elLeftBottom}
         >
-          <Content {...this.state} />
+          <div {...styles.content}>
+            <DataMapperList items={items} style={styles.dataMapperList} />
+          </div>
         </Actions>
       </div>
     );
@@ -58,11 +87,10 @@ export class DataMapper extends React.Component<
 const Content = (props: any) => {
   const style = {
     base: css({
-      flex: 1,
-      marginLeft: 2,
-      paddingLeft: 30,
+      maxHeight: '35%',
       paddingTop: 10,
       Scroll: true,
+      borderTop: `solid 1px ${color.format(-0.1)}`,
     }),
   };
 

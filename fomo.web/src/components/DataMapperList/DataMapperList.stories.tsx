@@ -9,7 +9,7 @@ describe('data', {
 })
   .add('DataMapperList (1)', () => {
     const query = data.Query.map({ id: 'increment', props: { by: 4 } });
-    const items = toItems(query.toObject());
+    const items = DataMapperList.toItems(query.toObject());
     return <DataMapperList items={items} />;
   })
   .add('DataMapperList (3)', () => {
@@ -18,18 +18,6 @@ describe('data', {
       .map({ id: 'increment', props: { by: 4 } })
       .map({ id: 'increment', props: { by: -2, flag: true } })
       .map({ id: 'increment', props: { by: 6, bar: 'hello' } });
-    const items = toItems(query.toObject());
+    const items = DataMapperList.toItems(query.toObject());
     return <DataMapperList items={items} />;
   });
-
-/**
- * INTERNAL
- */
-function toItems(query: data.IQuery): IDataMapperItem[] {
-  return query.mappers.map(item => {
-    return {
-      id: item.id,
-      props: item.props,
-    };
-  });
-}
