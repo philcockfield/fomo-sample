@@ -1,4 +1,4 @@
-import { React, css, color as colorUtil, GlamorValue } from '../common';
+import { React, css, color as colorUtil, GlamorValue } from '../../common';
 
 export interface ITextProps {
   children?: React.ReactNode;
