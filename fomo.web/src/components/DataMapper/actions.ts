@@ -16,6 +16,9 @@ export function init(query: data.Query) {
     .add('query data (100)', async e => {
       e.setState({ input: await getDataset(100) });
     })
+    .add('query data (1000)', async e => {
+      e.setState({ input: await getDataset(1000) });
+    })
 
     // Data Mappers.
     .header('Data Mappers')
