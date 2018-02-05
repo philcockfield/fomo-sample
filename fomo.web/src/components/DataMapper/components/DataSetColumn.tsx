@@ -24,7 +24,7 @@ export const DataSetColumn = (props: IDataSetColumnProps) => {
   );
 
   const elObject = dataset && (
-    <ObjectView data={props.dataset} expandLevel={3} name={title} />
+    <ObjectView data={dataset} expandLevel={3} name={title} />
   );
 
   return (
